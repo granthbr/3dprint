@@ -110,14 +110,43 @@ module loading_section() {
             }
         }
 
-        // Row number labels on the side
+        // Embossed row number labels on the left side
         for (row = [0:pill_types-1]) {
-            translate([-0.5,
-                       wall + row * (pill_slot_depth + wall) + pill_slot_depth/2 - 2,
+            translate([label_depth - 0.01,
+                       wall + row * (pill_slot_depth + wall) + pill_slot_depth/2,
+                       loading_height/2]) {
+                rotate([90, 0, 90]) {
+                    linear_extrude(height = label_depth) {
+                        text(str(row + 1), size = pill_label_font_size,
+                             halign = "center", valign = "center", font = "Liberation Sans:style=Bold");
+                    }
+                }
+            }
+        }
+
+        // Embossed row number labels on the right side (mirrored)
+        for (row = [0:pill_types-1]) {
+            translate([total_width - label_depth + 0.01,
+                       wall + row * (pill_slot_depth + wall) + pill_slot_depth/2,
                        loading_height/2]) {
                 rotate([90, 0, -90]) {
-                    linear_extrude(height = 1) {
-                        text(str(row + 1), size = 6, halign = "left", valign = "center");
+                    linear_extrude(height = label_depth) {
+                        text(str(row + 1), size = pill_label_font_size,
+                             halign = "center", valign = "center", font = "Liberation Sans:style=Bold");
+                    }
+                }
+            }
+        }
+
+        // Day column headers at the back of loading section
+        for (col = [0:days-1]) {
+            translate([wall + col * (compartment_width + wall) + compartment_width/2,
+                       channel_section_depth - label_depth + 0.01,
+                       loading_height/2]) {
+                rotate([90, 0, 0]) {
+                    linear_extrude(height = label_depth) {
+                        text(day_labels_short[col], size = pill_label_font_size,
+                             halign = "center", valign = "center", font = "Liberation Sans:style=Bold");
                     }
                 }
             }
