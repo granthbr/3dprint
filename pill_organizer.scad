@@ -38,8 +38,13 @@ loading_height = 15;
 // Ramp angle for pills to slide
 ramp_angle = 20;
 
-// Day labels
-day_labels = ["S", "M", "T", "W", "T", "F", "S"];
+// Day labels (full names for clarity)
+day_labels_short = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+// Label settings
+label_depth = 0.8;         // How deep/raised the embossed text is
+label_font_size = 6;       // Font size for day labels
+pill_label_font_size = 5;  // Font size for pill type numbers
 
 // === MODULES ===
 
@@ -57,15 +62,28 @@ module storage_section() {
         }
     }
 
-    // Add day labels on front face
+    // Add embossed day labels on front face (raised text)
     for (i = [0:days-1]) {
-        translate([wall + i * (compartment_width + wall) + compartment_width/2 - 3,
-                   0.5,
-                   compartment_height/2]) {
+        translate([wall + i * (compartment_width + wall) + compartment_width/2,
+                   label_depth - 0.01,
+                   compartment_height * 0.7]) {
             rotate([90, 0, 0]) {
-                linear_extrude(height = 1) {
-                    text(day_labels[i], size = 8, halign = "left", valign = "center");
+                linear_extrude(height = label_depth) {
+                    text(day_labels_short[i], size = label_font_size,
+                         halign = "center", valign = "center", font = "Liberation Sans:style=Bold");
                 }
+            }
+        }
+    }
+
+    // Add embossed day labels on bottom inside of each compartment
+    for (i = [0:days-1]) {
+        translate([wall + i * (compartment_width + wall) + compartment_width/2,
+                   wall + compartment_depth/2,
+                   wall + label_depth - 0.01]) {
+            linear_extrude(height = label_depth) {
+                text(day_labels_short[i], size = label_font_size,
+                     halign = "center", valign = "center", font = "Liberation Sans:style=Bold");
             }
         }
     }
