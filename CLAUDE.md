@@ -17,6 +17,8 @@ This is a 3D printing project repository containing parametric designs for 3D pr
 - Parameters at top of `.scad` files control dimensions
 - F5 to preview, F6 to render, then export STL
 
+Note: A Fusion 360 Python script was attempted but removed due to API complexity. OpenSCAD is simpler and free.
+
 ## Printer
 
 Creality K1 Max (300x300x300mm build volume)
@@ -48,3 +50,17 @@ A weekly medication organizer with:
 3. Render (F6) and export STL
 4. Import STL into Orca Slicer or Cura
 5. Slice and print
+
+## Project Status
+
+- [x] Initial design complete with slide-channel loading system
+- [x] Embossed labels added (SUN-SAT on compartments, 1-10 on pill channels)
+- [x] STL exported and ready for slicing
+- [ ] Test print
+- [ ] Adjust dimensions based on test fit
+
+## Future Enhancements (not yet implemented)
+
+- Individual day lids (hinged or snap-on)
+- Stackable design for multiple weeks
+- Travel version (4-day variant)
