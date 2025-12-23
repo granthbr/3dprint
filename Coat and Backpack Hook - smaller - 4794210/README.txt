@@ -1,0 +1,4 @@
+Coat and Backpack Hook - smaller by 6d6178 on Thingiverse: https://www.thingiverse.com/thing:4794210
+
+Summary:
+Moved to Printables.comThis design has moved over to Printables.com. If you have any comments or questions please post them on Printables.DescriptionThis is a scaled down hook based on thing:1727029 by Isaac Williams. The original hook was too big for my liking but I didn't want to scale the screw holes too. So I've recreated it from scratch.The hook provided as STL here has 110mm overall height, a hole diameter of 3mm, a hole bore diameter of 6mm, and 4mm of "meat" for the screw.You can head over to Onshape and adjust this hook to your liking. Through the configuration options in the top left you can adjust the overall height as well as hole diameter and hole bore diameter.Edit with Onshape CADThe hooks in the picture were printed using Flashforge Transparent Orange PLA and Prusament Galaxy Black PLA.
